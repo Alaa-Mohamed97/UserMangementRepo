@@ -1,0 +1,20 @@
+﻿@model User
+<div class="row">
+    <h1>Add New User</h1>
+    <div class="col-md-12">
+        <form asp-action="Createuser" method="post">
+            <div class="row">
+                <div class="col-md-3">
+                    User Name
+                </div>
+                <div class="col-md-9 form-group">
+                    <input type="text" asp-for="Name" />
+                </div>
+                <div class="col-12">
+                    <input type="submit" value="Save" class="btn btn-block btn-primary" />
+                </div>
+            </div>
+           
+        </form>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<User>
+
+
+
+<div class="row">
+    <h1> ALl Users</h1>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <a asp-action="Createuser" class="btn btn-primary">Create</a>
+
+            </div>
+        </div>
+        <table class="table">
+            <tr>
+                <th>User Name</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

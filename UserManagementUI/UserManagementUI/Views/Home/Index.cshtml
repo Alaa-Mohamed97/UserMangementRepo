@@ -1,0 +1,28 @@
+﻿@model IEnumerable<User>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="row">
+    <h1>Users Have num of Certifications bigger than five</h1>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <a asp-action="AddcertificationToUser" class="btn btn-primary">Create</a>
+            </div>
+        </div>
+        <table class="table">
+            <tr>
+                <th>User Name</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

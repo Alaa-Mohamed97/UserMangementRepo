@@ -1,0 +1,52 @@
+﻿@model UsersCretifications
+<div class="row">
+    <h1>Add Certification To User</h1>
+    <div class="col-md-12">
+        <form asp-action="AddcertificatToUser" method="post">
+            <div class="row">
+                <div class="col-md-3">
+                    User Name
+                </div>
+                <div class="col-md-9 form-group">
+                    <select asp-for="UserId" id="userid" class="form-control">
+                        <option readonly>--Choose User--</option>
+                        @foreach (var item in ViewBag.users)
+                        {
+                            <option value="@item.UserId">@item.Name</option>
+                        }
+
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    Certification 
+                </div>
+                <div class="col-md-9 form-group">
+                    <select asp-for="CertificationsId" id="certificationid" class="form-control">
+                    </select>
+                </div>
+                <div class="col-12">
+                    <input type="submit" value="Save" class="btn btn-block btn-primary"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+           
+            $("#userid").change(function () {
+                var userid = $(this).val();
+                $("select#certificationid").empty();
+                $.get('/Home/GetAvailableCertification', { userid: userid }, function (data) {
+                    $.each(data, function (i, item) {
+
+                        $("select#certificationid").append("<option value=" + item.certificationsId + ">" + item.title + "</option>");
+                    })
+                })
+            })
+        });
+
+
+    </script>
+}

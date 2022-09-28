@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Certifications>
+
+
+<div class="row">
+    <h1>All Certifications</h1>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <a asp-action="CreateCertification" class="btn btn-primary">Create</a>
+            </div>
+        </div>
+        <table class="table">
+            <tr>
+                <th>Title</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
